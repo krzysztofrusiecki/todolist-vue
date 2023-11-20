@@ -36,11 +36,13 @@ onMounted(() => {
 
 <template>
   <div class="w-full h-screen flex">
-    <NavBar v-if="session" />
+    <div class="hidden lg:w-72 lg:block lg:h-screen">
+      <NavBar v-if="session" />
+    </div>
 
     <div class="h-full w-full">
       <TheHeader v-if="session" />
-      <main class="px-10 py-5 flex flex-col grow">
+      <main class="px-2.5 lg:px-10 py-5 flex flex-col grow">
         <EditTodoForm v-if="session" />
 
         <RouterView />

@@ -16,20 +16,23 @@ const { todo } = defineProps<{
 
 <template>
   <li class="px-3 py-2 flex gap-4 items-center justify-between hover:bg-gray-100 transition-all">
-    <div class="flex items-center gap-2.5">
+    <div class="flex items-center gap-2.5 overflow-hidden">
       <input
         :id="todo.title"
         type="checkbox"
         :checked="todo.completed"
         @change="() => toggleTodo(todo.id)"
-        class="h-5 w-5"
+        class="h-5 w-5 flex shrink-0"
       />
-      <label :for="todo.title" class="select-none" :class="{ 'line-through': todo.completed }">{{
-        todo.title
-      }}</label>
+      <label
+        :for="todo.title"
+        class="block select-none text-ellipsis whitespace-nowrap overflow-hidden text-sm lg:text-base"
+        :class="{ 'line-through': todo.completed }"
+        >{{ todo.title }}</label
+      >
     </div>
     <div class="flex items-center gap-1">
-      <p v-if="!!todo.dueDate" class="mr-1 text-sm text-gray-400 select-none">
+      <p v-if="!!todo.dueDate" class="mr-1 text-gray-400 select-none text-xs lg:text-sm">
         {{ dayjs(todo.dueDate).format("DD/MM/YYYY") }}
       </p>
       <button

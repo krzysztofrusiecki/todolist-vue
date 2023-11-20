@@ -70,8 +70,8 @@ onMounted(() => {
 
 <template>
   <div class="w-full grid grid-cols-12 h-full items-center">
-    <div class="col-span-4"></div>
-    <div class="col-span-4">
+    <div class="hidden lg:block lg:col-span-4"></div>
+    <div class="col-span-12 lg:col-span-4">
       <TabGroup>
         <TabList class="flex space-x-1 rounded-xl bg-blue-50 p-1">
           <Tab class="grow" v-slot="{ selected }">

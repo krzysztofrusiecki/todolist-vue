@@ -6,6 +6,11 @@ import dayjs from "dayjs";
 import { useTodosStore } from "@/stores/todos";
 import NavLogo from "./NavLogo.vue";
 import router from "@/router";
+import { XMarkIcon } from "@heroicons/vue/24/outline";
+
+const emit = defineEmits<{
+  closeNavbar: [];
+}>();
 
 const { uncompletedTodos } = storeToRefs(useTodosStore());
 
@@ -36,7 +41,13 @@ const nextWeekTodos = computed(() => {
 </script>
 
 <template>
-  <aside class="w-72 py-5 bg-blue-600 flex flex-col justify-between">
+  <aside class="relative w-full h-full py-5 bg-blue-600 flex flex-col justify-between">
+    <button
+      class="absolute top-5 right-5 p-2 lg:hidden flex items-center justify-center hover:bg-blue-700 transition-all rounded-md text-white"
+      @click="emit('closeNavbar')"
+    >
+      <XMarkIcon class="h-6 w-6" />
+    </button>
     <div class="flex flex-col">
       <div class="w-full mb-5 flex justify-center items-center">
         <NavLogo />

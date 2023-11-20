@@ -34,21 +34,21 @@ watchEffect(() => {
 
 <template>
   <div class="w-full flex items-center mb-5">
-    <form @submit.prevent="submit" class="h-10 w-full gap-2.5 flex items-center">
+    <form @submit.prevent="submit" class="w-full gap-2.5 flex flex-col lg:flex-row lg:items-center">
       <input
         type="text"
         placeholder="Add a new todo"
         v-model="title"
-        class="flex grow h-full px-4 border border-gray-200 rounded-md"
+        class="h-10 flex grow px-4 border border-gray-200 rounded-md"
       />
       <input
         type="date"
         v-model="dueDate"
-        class="h-full px-4 w-48 border border-gray-200 rounded-md"
+        class="h-10 lg:grow-0 px-4 w-full lg:w-48 border border-gray-200 rounded-md"
       />
       <button
         type="submit"
-        class="px-5 h-full rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-all"
+        class="px-5 h-10 rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-all"
       >
         {{ todoToEdit ? "Update" : "Add" }}
       </button>
