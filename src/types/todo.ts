@@ -9,5 +9,5 @@ export type Todo = {
   dueDate: string | null;
   userId: string;
   createdAt: string;
-  updatedAt: string;
+  updatedAt: string | null;
 };

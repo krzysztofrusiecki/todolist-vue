@@ -22,7 +22,7 @@ export const useTodosStore = defineStore("todos", () => {
     todos.value = parseTodos(data ?? []);
   }
 
-  async function addTodo(newTodo: Omit<Todo, "id" | "completed">) {
+  async function addTodo(newTodo: Pick<Todo, "title" | "dueDate">) {
     if (!user.value) return;
 
     await supabase.from("todos").insert({
